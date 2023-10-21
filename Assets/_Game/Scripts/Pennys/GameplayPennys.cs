@@ -13,7 +13,6 @@ public class GameplayPennys : SingletonMonoBehaviour<GameplayPennys>
 {
     private PlayerShell playerList;
     private MedalTableObject medalList;
-    private List<LeaderboardObject> leaderboardList;
     private readonly string path = @"D:\Unity Projects\HerokuPennyData\PennyStorage";
 
     public int authorPennys;
@@ -39,14 +38,9 @@ public class GameplayPennys : SingletonMonoBehaviour<GameplayPennys>
         medalList = JsonConvert.DeserializeObject<MedalTableObject>(File.ReadAllText(path + $@"\{gameName}.txt"));
     }
 
-    private void LoadLeaderboardJSON()
-    {
-        leaderboardList = JsonConvert.DeserializeObject<List<LeaderboardObject>>(File.ReadAllText(path + $@"\{gameName}Leaderboard.txt"));
-    }
-
     private void AwardPennys()
     {
-        List<PlayerObject> list = PlayerManager.Get.players.OrderByDescending(p => p.totalCorrect).ThenBy(p => p.twitchName).Where(x => x.points > 0).ToList();
+        List<PlayerObject> list = PlayerManager.Get.players.OrderByDescending(p => p.points).ThenBy(p => p.twitchName).Where(x => x.points > 0).ToList();
         PlayerPennyData ppd;
 
         LoadJSON();
@@ -57,8 +51,8 @@ public class GameplayPennys : SingletonMonoBehaviour<GameplayPennys>
                 CreateNewPlayer(p);
             else
             {
-                ppd.CurrentSeasonPennys += (p.totalCorrect * multiplyFactor);
-                ppd.AllTimePennys += (p.totalCorrect * multiplyFactor);
+                ppd.CurrentSeasonPennys += (p.points * multiplyFactor);
+                ppd.AllTimePennys += (p.points * multiplyFactor);
             }
         }
 
@@ -76,18 +70,47 @@ public class GameplayPennys : SingletonMonoBehaviour<GameplayPennys>
 
     private void AwardMedals()
     {
-        List<PlayerObject> topTwo = PlayerManager.Get.players.Where(x => !x.eliminated).OrderByDescending(x => x.points).ToList();
         LoadMedalJSON();
 
-        if(topTwo.Count == 2)
-        {
-            medalList.goldMedallists.Add(topTwo[0].twitchName.ToLowerInvariant());
-            medalList.silverMedallists.Add(topTwo[1].twitchName.ToLowerInvariant());
-        }
+        var x = PlayerManager.Get.players.OrderByDescending(x => x.points).ToList();
+        int medal = 0;
 
-        List<PlayerObject> lobbyOrdered = PlayerManager.Get.players.Where(x => x.eliminated).OrderByDescending(x => x.totalCorrect).ToList();
-        foreach(PlayerObject player in lobbyOrdered.Where(x => x.totalCorrect == lobbyOrdered[0].totalCorrect))
-            medalList.lobbyMedallists.Add(player.twitchName.ToLowerInvariant());
+        for (int i = 0; i < x.Count; i++)
+        {
+            if (i == 0)
+                SwitchMedals(x[i], medal);
+            else
+            {
+                if (x[i].points == x[i - 1].points)
+                    SwitchMedals(x[i], medal);
+                else
+                {
+                    medal++;
+                    if (medal == 3)
+                        break;
+
+                    SwitchMedals(x[i], medal);
+                }
+            }
+        }
+    }
+
+    void SwitchMedals(PlayerObject p, int medal)
+    {
+        switch (medal)
+        {
+            case 0:
+                medalList.goldMedallists.Add(p.twitchName.ToLowerInvariant());
+                break;
+
+            case 1:
+                medalList.silverMedallists.Add(p.twitchName.ToLowerInvariant());
+                break;
+
+            case 2:
+                medalList.bronzeMedallists.Add(p.twitchName.ToLowerInvariant());
+                break;
+        }
     }
 
     private void CreateNewPlayer(PlayerObject p)
@@ -95,8 +118,8 @@ public class GameplayPennys : SingletonMonoBehaviour<GameplayPennys>
         PlayerPennyData newP = new PlayerPennyData()
         {
             PlayerName = p.twitchName.ToLowerInvariant(),
-            CurrentSeasonPennys = (p.totalCorrect * multiplyFactor),
-            AllTimePennys = (p.totalCorrect * multiplyFactor)
+            CurrentSeasonPennys = (p.points * multiplyFactor),
+            AllTimePennys = (p.points * multiplyFactor)
         };
         playerList.playerList.Add(newP);
     }

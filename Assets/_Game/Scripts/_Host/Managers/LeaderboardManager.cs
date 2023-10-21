@@ -37,7 +37,7 @@ public class LeaderboardManager : SingletonMonoBehaviour<LeaderboardManager>
 
     public void PlayerHasJoined(PlayerObject po)
     {
-        //AudioManager.Get.Play(AudioManager.OneShotClip.LobbyJoin1 + UnityEngine.Random.Range(0, 3));
+        AudioManager.Get.Play(AudioManager.OneShotClip.JoinLobby);
         straps.FirstOrDefault(x => x.containedPlayer == null).PopulateStrap(po, false);
         cloneStraps.FirstOrDefault(x => x.containedPlayer == null).PopulateStrap(po, true);
         ReorderBoard();

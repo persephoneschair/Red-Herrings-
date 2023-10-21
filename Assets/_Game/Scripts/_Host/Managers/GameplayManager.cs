@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
-using TMPro;
 using System.Linq;
-using Control;
 
 public class GameplayManager : SingletonMonoBehaviour<GameplayManager>
 {
@@ -22,17 +20,24 @@ public class GameplayManager : SingletonMonoBehaviour<GameplayManager>
         LockLobby,
         RevealInstructions,
         HideInstructions,
-        RunQuestion,
 
-        ResetPostQuestion,
-        DisplayFinalLeaderboard,
-        HideFinalLeaderboard,
+        LoadRound,
+        RunRound,
+        RevealFinalWinner,
+
         RollCredits,
         DoNothing
     };
     public GameplayStage currentStage = GameplayStage.DoNothing;
 
-    public enum Round { None };
+    public enum Round
+    {
+        Regular,
+        Freezeout,
+        Streak,
+        Final,
+        None
+    };
     public Round currentRound = Round.None;
     public int roundsPlayed = 0;
 
@@ -42,6 +47,7 @@ public class GameplayManager : SingletonMonoBehaviour<GameplayManager>
         switch (currentStage)
         {
             case GameplayStage.RunTitles:
+                currentStage = GameplayStage.DoNothing;
                 TitlesManager.Get.RunTitleSequence();
                 //If in recovery mode, we need to call Restore Players to restore specific player data (client end should be handled by the reload host call)
                 //Also need to call Restore gameplay state to bring us back to where we need to be (skipping titles along the way)
@@ -49,37 +55,55 @@ public class GameplayManager : SingletonMonoBehaviour<GameplayManager>
                 break;
 
             case GameplayStage.OpenLobby:
+                roundsPlayed = Operator.Get.testMode ? 0 + Operator.Get.debugStartRound : 0;
                 LobbyManager.Get.OnOpenLobby();
                 currentStage++;
                 break;
 
             case GameplayStage.LockLobby:
+                currentStage = GameplayStage.DoNothing;
                 LobbyManager.Get.OnLockLobby();
                 break;
 
             case GameplayStage.RevealInstructions:
+                currentRound = (Round)roundsPlayed;
+                InstructionsManager.Get.OnShowInstructions();
+                currentStage++;
                 break;
 
             case GameplayStage.HideInstructions:
+                InstructionsManager.Get.OnHideInstructions();
+                currentStage++;
                 break;
 
-            case GameplayStage.RunQuestion:
+            case GameplayStage.LoadRound:
+                rounds[(int)currentRound].LoadRound();
+                currentStage++;
                 break;
 
-            case GameplayStage.ResetPostQuestion:
+            case GameplayStage.RunRound:
+                currentStage = GameplayStage.DoNothing;
+                rounds[(int)currentRound].RunRound();
                 break;
 
-            case GameplayStage.DisplayFinalLeaderboard:
-                break;
-
-            case GameplayStage.HideFinalLeaderboard:
+            case GameplayStage.RevealFinalWinner:
+                (rounds[(int)currentRound] as FinalRound).RevealFinalWinner();
+                currentStage++;
                 break;
 
             case GameplayStage.RollCredits:
+                GameplayPennys.Get.UpdatePennysAndMedals();
+                Debug.Log("Roll Credits");
+                currentStage++;
                 break;
 
             case GameplayStage.DoNothing:
                 break;
         }
+    }
+
+    public RoundBase GetRoundBase()
+    {
+        return rounds[(int)currentRound];
     }
 }

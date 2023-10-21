@@ -154,13 +154,13 @@ public class HostManager : SingletonMonoBehaviour<HostManager>
             case EventLibrary.ClientEventType.MultipleChoiceQuestion:
                 //This will have an array length of [1]
                 p.HandlePlayerScoring(data.Split('|'));
-                SendPayloadToClient(p, EventLibrary.HostEventType.Information, "Answer received");
+                //SendPayloadToClient(p, EventLibrary.HostEventType.Information, "Answer received");
                 break;
 
             case EventLibrary.ClientEventType.MultiSelectQuestion:
                 //This will have a variable array length
                 p.HandlePlayerScoring(data.Split('|'));
-                SendPayloadToClient(p, EventLibrary.HostEventType.Information, "Answer received");
+                //SendPayloadToClient(p, EventLibrary.HostEventType.Information, "Answer received");
                 break;
 
             case EventLibrary.ClientEventType.DangerZoneQuestion:

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System;
-using UnityEngine.PlayerLoop;
 
 public static class QuestionManager
 {
@@ -14,13 +13,24 @@ public static class QuestionManager
         currentPack = JsonConvert.DeserializeObject<Pack>(tx.text);
     }
 
+    public static Round GetCurrentRound()
+    {
+        return currentPack.rounds[GameplayManager.Get.roundsPlayed];
+    }
+
+    public static string GetRoundTitle()
+    {
+        return GetCurrentRound().roundTitle;
+    }
+
+    public static int GetRedHerringsThisRound()
+    {
+        return GetCurrentRound().redHerrings.Count;
+    }
+
     public static int GetRoundQCount()
     {
-        switch (GameplayManager.Get.currentRound)
-        {
-            default:
-                return 0;
-        }
+        return GetCurrentRound().questions.Count;
     }
 
     public static Question GetQuestion(int qNum)
@@ -30,5 +40,10 @@ public static class QuestionManager
             default:
                 return null;
         }
+    }
+
+    public static bool PlayerIsCorrect(string answer)
+    {
+        return answer == GameplayManager.Get.GetRoundBase().currentQuestion.correctAnswer;
     }
 }

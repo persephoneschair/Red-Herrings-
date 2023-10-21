@@ -10,16 +10,19 @@ public class LobbyManager : SingletonMonoBehaviour<LobbyManager>
 
     public TextMeshProUGUI welcomeMessageMesh;
     public Animator lobbyCodeAnim;
-    private const string welcomeMessage = "";
+    private const string welcomeMessage = "Welcome to\n" +
+        "<size=300%><color=yellow>[DEAD] Herrings!</color></size>\n\n" +
+        "" +
+        "Playing on a mobile device? Scan the QR code!\n\n\n\n\n\n\n\n\n" +
+        "" +
+        "" +
+        "" +
+        "" +
+        "Desktop or laptop? Please visit:\n" +
+        "<size=150%><color=yellow>https://persephoneschair.itch.io/gamenight</color></size>\n" +
+        "<color=green><size=300%>[ABCD]</size></color>";
 
-    //"Welcome to <font=RiskyBusiness><size=200%>GAME NAME</size></font>\n\n" +
-    //  "" +
-    //"Playing on a mobile device? Scan the QR code!\n\n\n\n\n\n\n" +
-    //"" +
-    //"Desktop or laptop? Please visit:\n<color=yellow>https://persephoneschair.itch.io/gamenight</color>\n" +
-    //"<size=300%><color=#F8A3A3>[ABCD]</color>";
-
-    private const string permaMessage = "To join the game, please visit <color=yellow>https://persephoneschair.itch.io/gamenight</color> and join with the room code <color=#F8A3A3>[ABCD]</color>";
+    private const string permaMessage = "<color=yellow>!App\n<size=150%><color=green>[ABCD]";
 
     public Animator permaCodeAnim;
     public TextMeshProUGUI permaCodeMesh;
@@ -27,8 +30,9 @@ public class LobbyManager : SingletonMonoBehaviour<LobbyManager>
     [Button]
     public void OnOpenLobby()
     {
+        AudioManager.Get.Play(AudioManager.LoopClip.LobbyBed, true);
         lobbyCodeAnim.SetTrigger("toggle");
-        welcomeMessageMesh.text = welcomeMessage.Replace("[ABCD]", HostManager.Get.host.RoomCode.ToUpperInvariant());
+        welcomeMessageMesh.text = welcomeMessage.Replace("[ABCD]", HostManager.Get.host.RoomCode.ToUpperInvariant()).Replace("[DEAD]", Operator.Get.deadMode ? "Dead" : "Red");
     }
 
     [Button]
@@ -37,7 +41,18 @@ public class LobbyManager : SingletonMonoBehaviour<LobbyManager>
         lateEntry = true;
         lobbyCodeAnim.SetTrigger("toggle");
         permaCodeMesh.text = permaMessage.Replace("[ABCD]", HostManager.Get.host.RoomCode.ToUpperInvariant());
+        AudioManager.Get.StopLoop();
+        AudioManager.Get.Play(AudioManager.OneShotClip.EndOfRoundSting);
+        LEDManager.Get.LightChase();
         Invoke("TogglePermaCode", 1f);
+        Invoke("DelayOpeningRound", 1f);
+        
+    }
+
+    void DelayOpeningRound()
+    {
+        GameplayManager.Get.currentStage = GameplayManager.GameplayStage.RevealInstructions;
+        GameplayManager.Get.ProgressGameplay();
     }
 
     public void TogglePermaCode()

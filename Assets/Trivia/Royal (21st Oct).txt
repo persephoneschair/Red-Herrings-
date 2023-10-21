@@ -1,0 +1,210 @@
+{
+  "author": "royal_flush",
+  "rounds": [
+    {
+      "roundTitle": "The Tower of Babel",
+      "questions": [
+        {
+          "questionText": "If you're splitting the bill equally in a restaurant, it's also known as going... what?",
+          "correctAnswer": "Dutch"
+        },
+        {
+          "questionText": "Dijon mustard is also known as... what mustard?",
+          "correctAnswer": "French"
+        },
+        {
+          "questionText": "What is the official language of Brazil?",
+          "correctAnswer": "Portuguese"
+        },
+        {
+          "questionText": "In Monty Python, nobody expects what type of inquisition?",
+          "correctAnswer": "Spanish"
+        },
+        {
+          "questionText": "In Watership Down, what language is used by rabbit characters?",
+          "correctAnswer": "Lapine"
+        },
+        {
+          "questionText": "What is the official language of the country that was home to Alfred Nobel?",
+          "correctAnswer": "Swedish"
+        },
+        {
+          "questionText": "From which language do we get the phrase 'Hakuna Matata'?",
+          "correctAnswer": "Swahili"
+        },
+        {
+          "questionText": "What is the name of Tolkein's Elvish language used in the Lord of the Rings books?",
+          "correctAnswer": "Quenya"
+        },
+        {
+          "questionText": "Pizza & pasta are two of the most common types of dish in which cuisine?",
+          "correctAnswer": "Italian"
+        },
+        {
+          "questionText": "If I was performing a traditional haka, what language would I be speaking?",
+          "correctAnswer": "Māori"
+        },
+        {
+          "questionText": "In which language does the word hare translate to 'Hase'?",
+          "correctAnswer": "German"
+        },
+        {
+          "questionText": "What language is the mother tongue of Game of Thrones' Targaryen family?",
+          "correctAnswer": "High Valyrian"
+        }
+      ],
+      "redHerrings": [
+        "Klingon",
+        "Latin",
+        "English",
+        "Dothraki"
+      ]
+    },
+    {
+      "roundTitle": "Oo, Matron!",
+      "questions": [
+        {
+          "questionText": "When I play Google That!, I really don't enjoy The Early Bird. I much prefer...",
+          "correctAnswer": "Taboo"
+        },
+        {
+          "questionText": "Well, looks like we're heading for Lockdown 2: Electric...",
+          "correctAnswer": "Boogaloo"
+        },
+        {
+          "questionText": "You know what, Gmail is overrated. I'm switching back to...",
+          "correctAnswer": "Yahoo"
+        },
+        {
+          "questionText": "That bird is so pretty! It looks just like a parrot. Yeah, it's a...",
+          "correctAnswer": "Cockatoo"
+        },
+        {
+          "questionText": "I keep the grand total of two bottles in the bathroom. One is shower gel, the other is...",
+          "correctAnswer": "Shampoo"
+        },
+        {
+          "questionText": "I can never remember the name of that really catchy ABBA song. Oh hang on, it's...",
+          "correctAnswer": "Waterloo"
+        },
+        {
+          "questionText": "Origin of Symmetry was pretty good, but I much prefer Muse's live album...",
+          "correctAnswer": "Hullabaloo"
+        },
+        {
+          "questionText": "I can get the saddle on there, but whenever I go for the cowboy hat, it goes off. That's why I don't play...",
+          "correctAnswer": "Buckaroo"
+        },
+        {
+          "questionText": "My favourite song from The Jungle Book is definitely one of the ones sung by...",
+          "correctAnswer": "Baloo"
+        },
+        {
+          "questionText": "That's the cutest dog I've ever seen. Thanks, it's a Cocker Spaniel/Poodle cross, more commonly known as a...",
+          "correctAnswer": "Cockapoo"
+        },
+        {
+          "questionText": "This 1080Ti is pretty good, but I remember the days of...",
+          "correctAnswer": "Voodoo"
+        },
+        {
+          "questionText": "A korma?! What's the point in even having a curry? I'm gonna be having a chicken...",
+          "correctAnswer": "Vindaloo"
+        }
+      ],
+      "redHerrings": [
+        "Tattoo",
+        "Bamboo",
+        "Peekaboo",
+        "Cuckoo"
+      ]
+    },
+    {
+      "roundTitle": "Stars & Stripes",
+      "questions": [
+        {
+          "questionText": "Which of these is the title of a 1975 musical about female prison inmates?",
+          "correctAnswer": "Chicago"
+        },
+        {
+          "questionText": "Where was home to the characters from the sitcoms Friends, Sienfeld & How I Met Your Mother?",
+          "correctAnswer": "New York"
+        },
+        {
+          "questionText": "Finish the 1993 film title: Sleepless in...",
+          "correctAnswer": "Seattle"
+        },
+        {
+          "questionText": "Hollywood is a neighbourhood in the central region of which city?",
+          "correctAnswer": "Los Angeles"
+        },
+        {
+          "questionText": "What is the capital city of the state of Texas?",
+          "correctAnswer": "Austin"
+        },
+        {
+          "questionText": "In which city would you find the Golden Gate Bridge?",
+          "correctAnswer": "San Francisco"
+        },
+        {
+          "questionText": "CSI had spin-off series' set in New York and which other city?",
+          "correctAnswer": "Miami"
+        },
+        {
+          "questionText": "What is the capital city of the USA?",
+          "correctAnswer": "Washington D.C"
+        },
+        {
+          "questionText": "Complete the title of the 1971 book by Hunter S. Thompson: Fear & Loathing in...",
+          "correctAnswer": "Las Vegas"
+        }
+      ],
+      "redHerrings": [
+        "Philadelphia",
+        "Dallas",
+        "Phoenix"
+      ]
+    },
+    {
+      "roundTitle": "Oscar Bait",
+      "questions": [
+        {
+          "questionText": "Identify six films that won six or more Academy Awards",
+          "correctAnswer": "The Lord of the Rings: The Return of the King (2003)"
+        },
+        {
+          "questionText": "Identify six films that won six or more Academy Awards",
+          "correctAnswer": "The English Patient (1966)"
+        },
+        {
+          "questionText": "Identify six films that won six or more Academy Awards",
+          "correctAnswer": "Slumdog Millionaire (2008)"
+        },
+        {
+          "questionText": "Identify six films that won six or more Academy Awards",
+          "correctAnswer": "Star Wars (1977)"
+        },
+        {
+          "questionText": "Identify six films that won six or more Academy Awards",
+          "correctAnswer": "Gravity (2013)"
+        },
+        {
+          "questionText": "Identify six films that won six or more Academy Awards",
+          "correctAnswer": "Amadeus (1984)"
+        }
+      ],
+      "redHerrings": [
+        "The Thief of Bagdad (1940)",
+        "Avatar (2009)",
+        "There Will Be Blood (2007)",
+        "The Revenant (2015)",
+        "The King's Speech (2010)",
+        "The Godfather (1972)",
+        "Brokeback Mountain (2005)",
+        "The Exorcist (1973)",
+        "A Streetcar Named Desire (1951)",
+        "Joker (2019)"
+      ]
+    }
+  ]
+}

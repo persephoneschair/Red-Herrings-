@@ -40,7 +40,6 @@ public static class SaveManager
         pl.twitchName = playerObject.twitchName;
         pl.eliminated = playerObject.eliminated;
         pl.points = playerObject.points;
-        pl.totalCorrect = playerObject.totalCorrect;
         return pl;
     }
 
@@ -65,7 +64,6 @@ public static class SaveManager
             po.eliminated = rc.eliminated;
 
             po.points = rc.points;
-            po.totalCorrect = rc.totalCorrect;
         }
     }
 

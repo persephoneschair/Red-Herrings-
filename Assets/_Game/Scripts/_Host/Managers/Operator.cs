@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
 using NaughtyAttributes;
 using System.Linq;
 
@@ -12,6 +11,8 @@ public class Operator : SingletonMonoBehaviour<Operator>
     public bool testMode;
     [Tooltip("Skips opening titles")]
     public bool skipOpeningTitles;
+    [Tooltip("Plays the 'dead mode' titles")]
+    public bool deadMode;
     [Tooltip("Players must join the room with valid Twitch username as their name; this will skip the process of validation")]
     public bool fastValidation;
     [Tooltip("Start the game in recovery mode to restore any saved data from a previous game crash")]
@@ -21,6 +22,7 @@ public class Operator : SingletonMonoBehaviour<Operator>
 
     [Header("Quesion Data")]
     public TextAsset questionPack;
+    public int debugStartRound;
 
     public override void Awake()
     {
@@ -57,9 +59,9 @@ public class Operator : SingletonMonoBehaviour<Operator>
             GameplayManager.Get.ProgressGameplay();
     }
 
-    [Button]
+    /*[Button]
     public void Save()
     {
         SaveManager.BackUpData();
-    }
+    }*/
 }

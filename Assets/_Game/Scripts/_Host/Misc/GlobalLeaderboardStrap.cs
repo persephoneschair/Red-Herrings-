@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using TwitchLib.Client.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +21,19 @@ public class GlobalLeaderboardStrap : MonoBehaviour
 
     private Vector3 targetPosition;
     private float elapsedTime = 0;
+
+    public Animator hitAnim;
+
+    public enum StrapColor
+    {
+        Default,
+        LockedIn,
+        FrozenOut,
+        Correct,
+        Incorrect,
+        Streak
+    }
+
 
     public void SetUpStrap()
     {
@@ -46,25 +58,39 @@ public class GlobalLeaderboardStrap : MonoBehaviour
             pl.cloneStrap = this;
     }
 
-    public void SetBackgroundColor(bool hotseat)
+    public void SetStrapColor(StrapColor col)
     {
-        backgroundRend.color = hotseat ? backgroundCols[0] : backgroundCols[1];
-        borderRend.color = hotseat ? borderCols[0] : borderCols[1];
-        totalCorrectMesh.text = containedPlayer.points.ToString();
+        backgroundRend.color = backgroundCols[(int)col];
+        borderRend.color = borderCols[(int)col];
     }
 
-    public void SetCorrectOrIncorrectColor(bool correct)
+    public void PointsTick(int current, int target)
     {
-        backgroundRend.color = correct ? backgroundCols[2] : backgroundCols[3];
-        borderRend.color = correct ? borderCols[2] : borderCols[3];
-        totalCorrectMesh.text = containedPlayer.points.ToString();
+        hitAnim.SetTrigger("toggle");
+        LeaderboardManager.Get.ReorderBoard();
+        StartCoroutine(TickRoutine(current, target));
     }
 
-    public void SetLockedInColor()
+    IEnumerator TickRoutine(int current, int target)
     {
-        backgroundRend.color = backgroundCols[4];
-        borderRend.color = borderCols[4];
-        totalCorrectMesh.text = containedPlayer.points.ToString();
+        if(current < target)
+        {
+            for (int i = current + 1; i <= target; i++)
+            {
+                totalCorrectMesh.text = i.ToString();
+                AudioManager.Get.Play(AudioManager.OneShotClip.PointTick);
+                yield return new WaitForSeconds(0.1f);
+            }                
+        }
+        else
+        {
+            for (int i = current - 1; i >= target; i--)
+            {
+                totalCorrectMesh.text = i.ToString();
+                AudioManager.Get.Play(AudioManager.OneShotClip.PointTick);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
     }
 
     public void MoveStrap(Vector3 targetPos, int i)

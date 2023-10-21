@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 public class AudioManager : SingletonMonoBehaviour<AudioManager>
@@ -8,14 +7,41 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     public AudioSource oneShotSource;
     public AudioSource loopingSource;
+    public AudioSource xylSource;
 
     private bool playedUnique;
+    private bool playedUniqueAgain;
 
-    public enum OneShotClip { Impact, PodiumAnim, ClockTick, PlayerAnswer, WrongInFinal, ClockArm, Rotation, QStartAndEnd, PointTick };
+    public enum OneShotClip
+    {
+        Splatter,
+        EndOfRoundSting,
+        ClockTick,
+        CorrectAnswer,
+        IncorrectAnswer,
+        JoinLobby,
+        LeaveLobby,
+        SqueakOnce,
+        SqueakMultiple,
+        PointTick,
+        Wheee,
+        Whoosh,
+        Ding
+    };
+
+    public enum LoopClip
+    {
+        Titles,
+        LobbyBed,
+        RegularQ,
+        ExtendedQ,
+        FinalQ,
+        Credits
+    };
+
     public AudioClip[] stings;
-
-    public enum LoopClip { Titles, GameplayLoop, WinTheme, Credits };
     public AudioClip[] loops;
+    public AudioClip[] xylClips;
 
     #region Public Methods
 
@@ -36,6 +62,15 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         Invoke("CancelUnique", 5f);
     }
 
+    public void PlayUniqueAgain(OneShotClip unique)
+    {
+        if (playedUniqueAgain)
+            return;
+        playedUniqueAgain = true;
+        Play(unique);
+        Invoke("CancelUniqueAgain", 5f);
+    }
+
     public void StopLoop()
     {
         loopingSource.Stop();
@@ -54,6 +89,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
     }
 
+    public void PlayXyl(int index)
+    {
+        xylSource.PlayOneShot(xylClips[index]);
+    }
+
     public void Fade()
     {
         StartCoroutine(FadeOutLoop());
@@ -66,6 +106,10 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     private void CancelUnique()
     {
         playedUnique = false;
+    }
+    private void CancelUniqueAgain()
+    {
+        playedUniqueAgain = false;
     }
 
     private IEnumerator Delay(OneShotClip oneShot, float delay)

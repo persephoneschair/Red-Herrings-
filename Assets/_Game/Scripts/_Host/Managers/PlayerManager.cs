@@ -26,30 +26,16 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
                 playerName = value.playerName;
                 twitchName = value.twitchName;
                 profileImage = value.profileImage;
-                flagForCondone = value.flagForCondone;
-                wasCorrect = value.wasCorrect;
-                eliminated = value.eliminated;
 
                 points = value.points;
-                totalCorrect = value.totalCorrect;
-                submission = value.submission;
-                submissionTime = value.submissionTime;
             }
             else
             {
                 playerName = "OUT OF RANGE";
                 twitchName = "OUT OF RANGE";
                 profileImage = null;
-                flagForCondone = false;
-                wasCorrect = false;
-                eliminated = false;
 
                 points = 0;
-                totalCorrect = 0;
-                currentBid = 0;
-                maxPoints = 0;
-                submission = "OUT OF RANGE";
-                submissionTime = 0;
             }                
         }
     }
@@ -58,17 +44,9 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     [ShowOnly] public string playerName;
     [ShowOnly] public string twitchName;
     public Texture profileImage;
-    [ShowOnly] public bool flagForCondone;
-    [ShowOnly] public bool wasCorrect;
-    [ShowOnly] public bool eliminated;
 
     [Header("Variable Fields")]
     public int points;
-    public int totalCorrect;
-    public int currentBid;
-    public int maxPoints;
-    public string submission;
-    public float submissionTime;
 
     void UpdateDetails()
     {
@@ -104,9 +82,6 @@ public class PlayerManager : SingletonMonoBehaviour<PlayerManager>
     void SetDataBack()
     {
         FocusPlayer.points = points;
-        FocusPlayer.totalCorrect = totalCorrect;
-        FocusPlayer.submission = submission;
-        FocusPlayer.submissionTime = submissionTime;
         pullingData = true;
     }
 }

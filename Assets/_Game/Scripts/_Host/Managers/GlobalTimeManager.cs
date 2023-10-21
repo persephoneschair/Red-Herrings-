@@ -1,33 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GlobalTimeManager : SingletonMonoBehaviour<GlobalTimeManager>
 {
+    public int defaultCountdownTimer = 4;
+    private bool isCountdown;
+    private int storedStartTime;
 
-    public bool questionClockRunning;
-    [ShowOnly] public float elapsedTime;
+    public Animator clockAnim;
+    public TextMeshProUGUI clockMesh;
 
-    private void Update()
+    public int timeRemaining = 0;
+
+    public void StartClock(int startTime, bool countdown = false)
     {
-        if (questionClockRunning)
-            QuestionTimer();
+        isCountdown = countdown;
+        storedStartTime = startTime;
+        if (isCountdown)
+            timeRemaining = defaultCountdownTimer;
         else
-            elapsedTime = 0;
+            timeRemaining = storedStartTime;
+
+        StartCoroutine(RunClock());
     }
 
-    void QuestionTimer()
+    private IEnumerator RunClock()
     {
-        elapsedTime += (1f * Time.deltaTime);
+        while((timeRemaining > 1 && isCountdown) || (timeRemaining > 0 && !isCountdown))
+        {
+            if(timeRemaining == 1 && !isCountdown)
+                AudioManager.Get.Play(AudioManager.OneShotClip.LeaveLobby);
+            else
+                AudioManager.Get.Play(AudioManager.OneShotClip.ClockTick);
+
+            clockAnim.SetTrigger("tick");
+            yield return new WaitForSeconds(1f);
+
+            //Change enum for R2
+            if(GameplayManager.Get.currentRound == GameplayManager.Round.Freezeout)
+            {
+                var rnd = GameplayManager.Get.GetRoundBase() as FreezeoutRound;
+                //Reset to fast on countdown
+                if (isCountdown)
+                    rnd.currentPoints = FreezeoutRound.AvailablePoints.Fast;
+                else
+                {
+                    if (timeRemaining <= rnd.defaultQuestionTime / 3)
+                        rnd.currentPoints = FreezeoutRound.AvailablePoints.Slow;
+                    else if(timeRemaining <= (rnd.defaultQuestionTime / 3) * 2)
+                        rnd.currentPoints = FreezeoutRound.AvailablePoints.Medium;
+                    else
+                        rnd.currentPoints = FreezeoutRound.AvailablePoints.Fast;
+                }
+            }
+        }
+
+        if(isCountdown)
+        {
+            isCountdown = false;
+            StartClock(storedStartTime + 1);
+        }
+        else
+            OnTimerEnded();
     }
 
-    public float GetRawTimestamp()
+    public void OnTimerEnded()
     {
-        return elapsedTime;
+        GameplayManager.Get.GetRoundBase().OnQuestionEnded();
     }
 
-    public string GetFormattedTimestamp()
+    public void ToggleClock()
     {
-        return elapsedTime.ToString("#0.00");
+        clockAnim.SetTrigger("toggle");
+    }
+
+    public void OnSpinAnimation()
+    {
+        timeRemaining--;
+        clockMesh.text = timeRemaining.ToString();
     }
 }

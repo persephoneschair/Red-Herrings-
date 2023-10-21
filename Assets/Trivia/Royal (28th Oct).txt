@@ -1,0 +1,210 @@
+{
+  "author": "royal_flush",
+  "rounds": [
+    {
+      "roundTitle": "Spooky Stories",
+      "questions": [
+        {
+          "questionText": "The Amityville Horror (1977)",
+          "correctAnswer": "Jay Anson"
+        },
+        {
+          "questionText": "The Woman in Black (1983)",
+          "correctAnswer": "Susan Hill"
+        },
+        {
+          "questionText": "The Hellbound Heart (1986)",
+          "correctAnswer": "Clive Barker"
+        },
+        {
+          "questionText": "The Haunting of Hill House (1959)",
+          "correctAnswer": "Shirley Jackson"
+        },
+        {
+          "questionText": "The Exorcist (1971)",
+          "correctAnswer": "William Peter Blatty"
+        },
+        {
+          "questionText": "Dracula (1897)",
+          "correctAnswer": "Bram Stoker"
+        },
+        {
+          "questionText": "House of Leaves (2000)",
+          "correctAnswer": "Mark Z. Danielewski"
+        },
+        {
+          "questionText": "The Call of Cthulhu (1928)",
+          "correctAnswer": "H.P. Lovecraft"
+        },
+        {
+          "questionText": "I Am Legend (1954)",
+          "correctAnswer": "Richard Matheson"
+        },
+        {
+          "questionText": "Frankenstein (1818)",
+          "correctAnswer": "Mary Shelley"
+        },
+        {
+          "questionText": "The Silence of the Lambs (1988)",
+          "correctAnswer": "Thomas Harris"
+        },
+        {
+          "questionText": "Welcome to Dead House (1992)",
+          "correctAnswer": "R.L. Stine"
+        }
+      ],
+      "redHerrings": [
+        "Neil Gaiman",
+        "Anne Rice",
+        "Stephen King",
+        "Daphne du Maurier"
+      ]
+    },
+    {
+      "roundTitle": "Awful Assassinations",
+      "questions": [
+        {
+          "questionText": "John Wilkes Booth",
+          "correctAnswer": "Abraham Lincoln"
+        },
+        {
+          "questionText": "Mark Chapman",
+          "correctAnswer": "John Lennon"
+        },
+        {
+          "questionText": "Nathuram Godse",
+          "correctAnswer": "Mohandas K. Gandhi"
+        },
+        {
+          "questionText": "Sirhan Sirhan",
+          "correctAnswer": "Robert F. Kennedy"
+        },
+        {
+          "questionText": "Lee Harvey Oswald",
+          "correctAnswer": "John F. Kennedy"
+        },
+        {
+          "questionText": "Charles Guiteau",
+          "correctAnswer": "James Garfield"
+        },
+        {
+          "questionText": "Yigal Amir",
+          "correctAnswer": "Yitzhak Rabin"
+        },
+        {
+          "questionText": "Andrey Lugovoy",
+          "correctAnswer": "Alexander Litvinenko"
+        },
+        {
+          "questionText": "Gavrilo Princip",
+          "correctAnswer": "Franz Ferdinand"
+        },
+        {
+          "questionText": "Marcus Junius Brutus",
+          "correctAnswer": "Julius Caesar"
+        },
+        {
+          "questionText": "Leon Czolgosz",
+          "correctAnswer": "William McKinley"
+        },
+        {
+          "questionText": "Khalid Al-Islambouli",
+          "correctAnswer": "Anwar Sadat"
+        }
+      ],
+      "redHerrings": [
+        "Malcolm X",
+        "Martin Luther King Jr.",
+        "Pierre Laporte",
+        "Pol Pot"
+      ]
+    },
+    {
+      "roundTitle": "Ghastly Ghosts",
+      "questions": [
+        {
+          "questionText": "The Bell Witch",
+          "correctAnswer": "A Farm near Adams, Tennessee"
+        },
+        {
+          "questionText": "The Man in Grey",
+          "correctAnswer": "Drury Lane, Covent Garden"
+        },
+        {
+          "questionText": "Jacob Marley",
+          "correctAnswer": "Lime Street, The City of London"
+        },
+        {
+          "questionText": "The Headless Horseman",
+          "correctAnswer": "Sleepy Hollow, Tarrytown, New York"
+        },
+        {
+          "questionText": "Dead Men of Dunharrow",
+          "correctAnswer": "Dwimorberg, Middle-earth"
+        },
+        {
+          "questionText": "Thomas A. Becket",
+          "correctAnswer": "The Tower of London, Tower Hamlets"
+        },
+        {
+          "questionText": "The Grey Lady",
+          "correctAnswer": "Ravenclaw Tower, Hogwarts Castle"
+        },
+        {
+          "questionText": "The Cock Lane Ghost",
+          "correctAnswer": "Cock Lane, Smithfield"
+        },
+        {
+          "questionText": "Dr. Malcolm Crowe",
+          "correctAnswer": "Anywhere Haley Joel Osment is"
+        }
+      ],
+      "redHerrings": [
+        "Chichester Cathedral, Chichester",
+        "Worthington Manor, Maryland",
+        "The Palace of Versailles, Versailles"
+      ]
+    },
+    {
+      "roundTitle": "Horrible Halloween",
+      "questions": [
+        {
+          "questionText": "Identify six subtitles that have been used by films in the Halloween franchise",
+          "correctAnswer": "Season of the Witch"
+        },
+        {
+          "questionText": "Identify six subtitles that have been used by films in the Halloween franchise",
+          "correctAnswer": "The Return of Michael Myers"
+        },
+        {
+          "questionText": "Identify six subtitles that have been used by films in the Halloween franchise",
+          "correctAnswer": "The Revenge of Michael Myers"
+        },
+        {
+          "questionText": "Identify six subtitles that have been used by films in the Halloween franchise",
+          "correctAnswer": "Resurrection"
+        },
+        {
+          "questionText": "Identify six subtitles that have been used by films in the Halloween franchise",
+          "correctAnswer": "Kills"
+        },
+        {
+          "questionText": "Identify six subtitles that have been used by films in the Halloween franchise",
+          "correctAnswer": "20 Years Later"
+        }
+      ],
+      "redHerrings": [
+        "Dies",
+        "The Rise of Michael Myers",
+        "Attack of Michael Myers",
+        "The Final Chapter",
+        "Reloaded",
+        "Revelation",
+        "The Dark Descent",
+        "Begins",
+        "The Dream Master",
+        "Next of Kin"
+      ]
+    }
+  ]
+}
