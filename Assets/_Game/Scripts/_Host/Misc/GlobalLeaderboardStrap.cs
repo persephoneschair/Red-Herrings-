@@ -67,7 +67,7 @@ public class GlobalLeaderboardStrap : MonoBehaviour
     public void PointsTick(int current, int target)
     {
         hitAnim.SetTrigger("toggle");
-        LeaderboardManager.Get.ReorderBoard();
+        //LeaderboardManager.Get.ReorderBoard();
         StartCoroutine(TickRoutine(current, target));
     }
 

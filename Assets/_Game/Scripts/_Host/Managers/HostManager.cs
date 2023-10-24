@@ -169,7 +169,6 @@ public class HostManager : SingletonMonoBehaviour<HostManager>
                 SendPayloadToClient(p, EventLibrary.HostEventType.Information, "Answer received");
                 break;
 
-
             default:
                 break;
         }

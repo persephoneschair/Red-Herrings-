@@ -51,11 +51,10 @@ public class PlayerObject
             oldPlayer.playerClientID = playerClientID;
             oldPlayer.playerClientRef = playerClientRef;
             oldPlayer.playerName = playerName;
-            //oldPlayer.podium.playerNameMesh.text = playerName;
+            oldPlayer.strap.playerNameMesh.text = oldPlayer.playerName;
+            oldPlayer.cloneStrap.playerNameMesh.text = oldPlayer.playerName;
 
             otp = "";
-            //podium.containedPlayer = null;
-            //podium = null;
             playerClientRef = null;
             playerName = "";
 
@@ -63,22 +62,12 @@ public class PlayerObject
                 PlayerManager.Get.pendingPlayers.Remove(this);
 
             HostManager.Get.SendPayloadToClient(oldPlayer, EventLibrary.HostEventType.Validated, $"{oldPlayer.playerName}|{oldPlayer.points.ToString()}|{oldPlayer.twitchName}");
-            //HostManager.Get.UpdateLeaderboards();
             return;
         }
         otp = "";
         twitchName = name.ToLowerInvariant();
         profileImage = tx;
-        //podium.avatarRend.material.mainTexture = profileImage;
-        if(!LobbyManager.Get.lateEntry)
-        {
-            //podium.InitialisePodium();
-        }
-        else
-        {
-            points = 0;
-            eliminated = true;
-        }
+
         HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.Validated, $"{playerName}|{points.ToString()}|{twitchName}");
         HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
         PlayerManager.Get.players.Add(this);
@@ -97,7 +86,7 @@ public class PlayerObject
                 {
                     qsCorrectThisRound++;
                     AudioManager.Get.Play(AudioManager.OneShotClip.CorrectAnswer);
-                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Well played! {submittedAnswers.FirstOrDefault()} was the correct answer!|CORRECT");
+                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"CORRECT!|CORRECT");
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Correct);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Correct);
                     if(GameplayManager.Get.GetRoundBase().bonusQuestion)
@@ -117,7 +106,7 @@ public class PlayerObject
                 else
                 {
                     AudioManager.Get.Play(AudioManager.OneShotClip.IncorrectAnswer);
-                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Bad luck! The correct answer was {GameplayManager.Get.GetRoundBase().currentQuestion.correctAnswer}|INCORRECT");
+                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"INCORRECT!|INCORRECT");
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     if (GameplayManager.Get.GetRoundBase().bonusQuestion)
@@ -149,7 +138,7 @@ public class PlayerObject
                         points += (GameplayManager.Get.GetRoundBase() as FreezeoutRound).pointsForBonusCorrect;
                         strap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as FreezeoutRound).pointsForBonusCorrect, points);
                         cloneStrap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as FreezeoutRound).pointsForBonusCorrect, points);
-                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Well played! {submittedAnswers.FirstOrDefault()} was the correct answer!\n{(GameplayManager.Get.GetRoundBase() as FreezeoutRound).pointsForBonusCorrect} points awarded!|CORRECT");
+                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"CORRECT!\n{(GameplayManager.Get.GetRoundBase() as FreezeoutRound).pointsForBonusCorrect} points!|CORRECT");
                     }
                     else
                     {
@@ -159,7 +148,7 @@ public class PlayerObject
                         strap.PointsTick(points - pointsAwarded, points);
                         cloneStrap.PointsTick(points - pointsAwarded, points);
                         string pointOrPoints = $"{pointsAwarded} {(pointsAwarded == 1 ? "point" : "points")}";
-                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Well played! {submittedAnswers.FirstOrDefault()} was the correct answer!\n{pointOrPoints} awarded!|CORRECT");
+                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"CORRECT!\n{pointOrPoints} points!|CORRECT");
                     }
 
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
@@ -167,7 +156,7 @@ public class PlayerObject
                 else
                 {
                     AudioManager.Get.Play(AudioManager.OneShotClip.IncorrectAnswer);
-                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Bad luck! The correct answer was {GameplayManager.Get.GetRoundBase().currentQuestion.correctAnswer}\nYou're frozen out of the next question!|INCORRECT");
+                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"INCORRECT!\nYou're frozen out of the next question!|INCORRECT");
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     frozenOut = true;
@@ -179,11 +168,10 @@ public class PlayerObject
             case GameplayManager.Round.Streak:
                 if (QuestionManager.PlayerIsCorrect(submittedAnswers.FirstOrDefault()))
                 {
-                    //Point or points
                     qsCorrectThisRound++;
                     string pointOrPoints = $"{streakPointsNextQ} {(streakPointsNextQ == 1 ? "point" : "points")}";
                     AudioManager.Get.Play(AudioManager.OneShotClip.CorrectAnswer);
-                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Well played! {submittedAnswers.FirstOrDefault()} was the correct answer!\n{pointOrPoints} awarded!|CORRECT");
+                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"CORRECT!\n{pointOrPoints}!|CORRECT");
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Correct);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Correct);
 
@@ -197,7 +185,7 @@ public class PlayerObject
                 else
                 {
                     AudioManager.Get.Play(AudioManager.OneShotClip.IncorrectAnswer);
-                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Bad luck! The correct answer was {GameplayManager.Get.GetRoundBase().currentQuestion.correctAnswer}|INCORRECT");
+                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"INCORRECT!|INCORRECT");
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
 
@@ -208,11 +196,15 @@ public class PlayerObject
                 break;
 
             case GameplayManager.Round.Final:
+                //If the round has concluded, no more answers can be processed
+                if ((GameplayManager.Get.GetRoundBase() as FinalRound).roundConcluded)
+                    return;
+
                 //First, only submissions of exactly the correct answer can be processed
-                if(submittedAnswers.Length != GameplayManager.Get.GetRoundBase().currentRound.questions.Count())
+                if (submittedAnswers.Length != GameplayManager.Get.GetRoundBase().currentRound.questions.Count())
                 {
                     AudioManager.Get.Play(AudioManager.OneShotClip.IncorrectAnswer);
-                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Whoops! You didn't submit exactly {GameplayManager.Get.GetRoundBase().currentRound.questions.Count()} answers!\n You're back in {(GameplayManager.Get.GetRoundBase() as FinalRound).defaultFreezeOutTime} seconds...|INCORRECT");
+                    HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"Whoops! You didn't submit exactly {GameplayManager.Get.GetRoundBase().currentRound.questions.Count()} answers!\n Back in {(GameplayManager.Get.GetRoundBase() as FinalRound).defaultFreezeOutTime} seconds...|INCORRECT");
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     (GameplayManager.Get.GetRoundBase() as FinalRound).UnlockPlayer(this);
@@ -232,7 +224,7 @@ public class PlayerObject
                         points += (GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints;
                         strap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints, points);
                         cloneStrap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints, points);
-                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"That's it! You've solved the final puzzle and earned {(GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints} points!|CORRECT");
+                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"CORRECT!\n{(GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints} points!|CORRECT");
                         (GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints -= (GameplayManager.Get.GetRoundBase() as FinalRound).subsequentPointDeduction;
 
                         if ((GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints <= 0)
@@ -241,7 +233,7 @@ public class PlayerObject
                     else
                     {
                         AudioManager.Get.Play(AudioManager.OneShotClip.IncorrectAnswer);
-                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"That's not quite right! You found {matches} correct answers.\n You're back in {(GameplayManager.Get.GetRoundBase() as FinalRound).defaultFreezeOutTime} seconds...|INCORRECT");
+                        HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"{matches} CORRECT\n Back in {(GameplayManager.Get.GetRoundBase() as FinalRound).defaultFreezeOutTime} seconds...|INCORRECT");
                         strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                         cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                         (GameplayManager.Get.GetRoundBase() as FinalRound).UnlockPlayer(this);

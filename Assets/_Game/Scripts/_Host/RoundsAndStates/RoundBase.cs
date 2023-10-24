@@ -143,7 +143,8 @@ public class RoundBase : MonoBehaviour
             HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"The correct answer was {currentQuestion.correctAnswer}");
             HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.UpdateScore, $"POINTS: {po.points}");
         }
-            
+
+        LeaderboardManager.Get.ReorderBoard();
         AnswerCard ac = answerCards.FirstOrDefault(x => x.answerMesh.text == currentQuestion.correctAnswer);
         ac.SetColorState(AnswerCard.CardColorState.Correct);
         ac.ManyWiggle();
@@ -157,7 +158,7 @@ public class RoundBase : MonoBehaviour
         if(currentQuestionIndex == currentRound.questions.Count)
         {
             foreach (PlayerObject po in PlayerManager.Get.players)
-                HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"The Red Herrings were:\n{string.Join("\n", currentRound.redHerrings)}");
+                HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"<size=50%>The Red Herrings were:</size>\n{string.Join("\n", currentRound.redHerrings)}");
             questionMesh.text = "Let's reveal the Red Herrings...";
             foreach (AnswerCard a in answerCards)
                 a.SetColorState(AnswerCard.CardColorState.Default);
