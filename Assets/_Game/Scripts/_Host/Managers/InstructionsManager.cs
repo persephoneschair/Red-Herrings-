@@ -14,9 +14,9 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
         "Answer the {0} questions using the options available.\n\n" +
         "" +
         "You win <color=green>{1} point</color> for each correct answer.\n" +
-        "You lose <color=red>{2} point</color> for each incorrect answer.\n\n" +
+        "You lose <color=#FF8484>{2} point</color> for each incorrect answer.\n\n" +
         "" +
-        "Additionally, <color=yellow>BONUS QUESTIONS</color> may appear which are worth <color=green>{3} points</color> if correct but cost <color=red>{4} points</color> if incorrect.\n" +
+        "Additionally, <color=yellow>BONUS QUESTIONS</color> may appear which are worth <color=green>{3} points</color> if correct but cost <color=#FF8484>{4} points</color> if incorrect.\n" +
         "An extra bonus of <color=green>{5} points</color> is awarded for a perfect round.\n\n" +
         "" +
         "Answers will not be used more than once.\n" +
@@ -26,7 +26,7 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
         "Answer the {0} questions using the options available.\n\n" +
         "" +
         "Answer faster to earn more points.\n" +
-        "<color=red>Answering incorrectly</color> freezes you out of the following question.\n\n" +
+        "<color=#FF8484>Answering incorrectly</color> freezes you out of the following question.\n\n" +
         "" +
         "Additionally, <color=yellow>BONUS QUESTIONS</color> may appear which are worth a flat rate of <color=green>{1} points</color> if correct.\n" +
         "An extra bonus of <color=green>{2} points</color> is awarded for a perfect round.\n\n" +
@@ -38,7 +38,7 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
         "Answer the {0} questions using the options available.\n\n" +
         "" +
         "Earn more points for each consecutive correct answer.\n" +
-        "<color=red>Answering incorrectly</color> breaks your streak.\n" +
+        "<color=#FF8484>Answering incorrectly</color> breaks your streak.\n" +
         "<color=orange>Abstain from answering</color> to preserve your streak.\n\n" +
         "" +
         "No bonus questions this round BUT, a bonus of <color=green>{1} points</color> is awarded for a perfect round.\n\n" +
@@ -56,7 +56,7 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
         "" +
         "Answers will gradually be removed as gameplay progresses.\n\n" +
         "" +
-        "Gameplay continues until all {0} answers have been found or <color=yellow>{4} seconds</color> have expired."
+        "Gameplay continues until all {5} players have found all {0} answers or <color=yellow>{4} seconds</color> have expired."
     };
 
     [Button]
@@ -72,6 +72,7 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
             LEDManager.Get.LightChase();
         }
 
+        DebugLog.Print($"ROUND {Extensions.ForceFirstCharToUpper(Extensions.NumberToWords(GameplayManager.Get.roundsPlayed + 1))}: {QuestionManager.GetRoundTitle()}", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Default);
         instructionsAnim.SetTrigger("toggle");
         GameplayManager.Get.GetRoundBase().questionMesh.text = QuestionManager.GetRoundTitle();
         switch (GameplayManager.Get.currentRound)
@@ -108,7 +109,8 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
                     Extensions.NumberToWords((GameplayManager.Get.GetRoundBase() as FinalRound).defaultFreezeOutTime),
                     Extensions.NumberToWords((GameplayManager.Get.GetRoundBase() as FinalRound).maximumPoints),
                     Extensions.NumberToWords((GameplayManager.Get.GetRoundBase() as FinalRound).subsequentPointDeduction),
-                    Extensions.NumberToWords(GameplayManager.Get.GetRoundBase().defaultQuestionTime));
+                    Extensions.NumberToWords(GameplayManager.Get.GetRoundBase().defaultQuestionTime),
+                    Extensions.NumberToWords((GameplayManager.Get.GetRoundBase() as FinalRound).maximumPoints / (GameplayManager.Get.GetRoundBase() as FinalRound).subsequentPointDeduction));
                 break;
         }
     }

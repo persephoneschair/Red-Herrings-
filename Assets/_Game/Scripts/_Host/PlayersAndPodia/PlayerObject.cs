@@ -25,6 +25,7 @@ public class PlayerObject
     public bool frozenOut;
     public int streakPointsNextQ = 1;
     public int qsCorrectThisRound = 0;
+    public bool perfectRound = false;
 
 
     public PlayerObject(Player pl, string name)
@@ -79,7 +80,9 @@ public class PlayerObject
 
     public void HandlePlayerScoring(string[] submittedAnswers)
     {
-        switch(GameplayManager.Get.currentRound)
+        this.strap.hitAnim.SetTrigger("toggle");
+        this.cloneStrap.hitAnim.SetTrigger("toggle");
+        switch (GameplayManager.Get.currentRound)
         {
             case GameplayManager.Round.Regular:
                 if(QuestionManager.PlayerIsCorrect(submittedAnswers.FirstOrDefault()))
@@ -101,6 +104,7 @@ public class PlayerObject
                         strap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as RegularRound).pointsForCorrect, points);
                         cloneStrap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as RegularRound).pointsForCorrect, points);
                     }
+                    DebugLog.Print($"{playerName} ({qsCorrectThisRound},{points})", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Green);
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
                 }
                 else
@@ -121,6 +125,7 @@ public class PlayerObject
                         strap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as RegularRound).pointsForIncorrect, points);
                         cloneStrap.PointsTick(points - (GameplayManager.Get.GetRoundBase() as RegularRound).pointsForIncorrect, points);
                     }
+                    DebugLog.Print($"{playerName} ({qsCorrectThisRound},{points})", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Red);
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
                 }
                 break;
@@ -151,6 +156,7 @@ public class PlayerObject
                         HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"CORRECT!\n{pointOrPoints} points!|CORRECT");
                     }
 
+                    DebugLog.Print($"{playerName} ({qsCorrectThisRound},{points})", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Green);
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
                 }
                 else
@@ -161,6 +167,7 @@ public class PlayerObject
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     frozenOut = true;
 
+                    DebugLog.Print($"{playerName} ({qsCorrectThisRound},{points})", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Red);
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
                 }
                 break;
@@ -180,6 +187,7 @@ public class PlayerObject
                     cloneStrap.PointsTick(points - streakPointsNextQ, points);
                     streakPointsNextQ += (GameplayManager.Get.GetRoundBase() as StreakRound).pointIncreasePerQ;
 
+                    DebugLog.Print($"{playerName} ({qsCorrectThisRound},{points})", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Green);
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
                 }
                 else
@@ -191,6 +199,7 @@ public class PlayerObject
 
                     streakPointsNextQ = 1;
 
+                    DebugLog.Print($"{playerName} ({qsCorrectThisRound},{points})", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Red);
                     HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.UpdateScore, $"POINTS: {points}");
                 }
                 break;
@@ -208,6 +217,8 @@ public class PlayerObject
                     strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);
                     (GameplayManager.Get.GetRoundBase() as FinalRound).UnlockPlayer(this);
+
+                    DebugLog.Print($"{playerName} submission error...", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Orange);
                 }
                 else
                 {
@@ -218,6 +229,7 @@ public class PlayerObject
                         if ((GameplayManager.Get.GetRoundBase() as FinalRound).availablePoints <= 0)
                             return;
 
+                        DebugLog.Print($"{playerName} has solved the puzzle!", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Green);
                         AudioManager.Get.Play(AudioManager.OneShotClip.CorrectAnswer);
                         strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Correct);
                         cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Correct);
@@ -232,6 +244,7 @@ public class PlayerObject
                     }
                     else
                     {
+                        DebugLog.Print($"{playerName} got {matches}...", DebugLog.StyleOption.Italic, DebugLog.ColorOption.Red);
                         AudioManager.Get.Play(AudioManager.OneShotClip.IncorrectAnswer);
                         HostManager.Get.SendPayloadToClient(this, EventLibrary.HostEventType.SingleAndMultiResult, $"{matches} CORRECT\n Back in {(GameplayManager.Get.GetRoundBase() as FinalRound).defaultFreezeOutTime} seconds...|INCORRECT");
                         strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Incorrect);

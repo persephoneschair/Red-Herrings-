@@ -107,6 +107,7 @@ public class RoundBase : MonoBehaviour
         GlobalTimeManager.Get.StartClock(defaultQuestionTime, true);
         currentQuestion = currentRound.questions[currentQuestionIndex];
         Invoke("QuestionRunning", (float)GlobalTimeManager.Get.defaultCountdownTimer - 1);
+        DebugLog.Print(currentQuestion.questionText, DebugLog.StyleOption.Bold, DebugLog.ColorOption.Blue);
     }
 
     private IEnumerator AnnounceBonus()
@@ -114,6 +115,7 @@ public class RoundBase : MonoBehaviour
         foreach (PlayerObject po in PlayerManager.Get.players)
             HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, "BONUS QUESTION!");
 
+        DebugLog.Print("IT'S A BONUS QUESTION!", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Yellow);
         AudioManager.Get.Play(AudioManager.OneShotClip.EndOfRoundSting);
         bonusAnim.SetTrigger("toggle");
         LEDManager.Get.LightChase();
@@ -144,6 +146,8 @@ public class RoundBase : MonoBehaviour
             HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.UpdateScore, $"POINTS: {po.points}");
         }
 
+        DebugLog.Print("TIME UP", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Blue);
+        DebugLog.Print($"The correct answer was {currentQuestion.correctAnswer}", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Green);
         LeaderboardManager.Get.ReorderBoard();
         AnswerCard ac = answerCards.FirstOrDefault(x => x.answerMesh.text == currentQuestion.correctAnswer);
         ac.SetColorState(AnswerCard.CardColorState.Correct);
@@ -153,6 +157,7 @@ public class RoundBase : MonoBehaviour
 
     public virtual void ResetForNewQuestion()
     {
+        DebugLog.Print("===", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Default);
         currentQuestionIndex++;
         ResetPlayerVariables();
         if(currentQuestionIndex == currentRound.questions.Count)
@@ -172,6 +177,7 @@ public class RoundBase : MonoBehaviour
 
     public virtual void EndOfRound()
     {
+        DebugLog.Print($"END OF ROUND {Extensions.ForceFirstCharToUpper(Extensions.NumberToWords(GameplayManager.Get.roundsPlayed + 1))}: {QuestionManager.GetRoundTitle()}", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Default);
         AudioManager.Get.Play(AudioManager.OneShotClip.EndOfRoundSting);
         GlobalTimeManager.Get.ToggleClock();
         LEDManager.Get.LightChase();
@@ -220,11 +226,21 @@ public class RoundBase : MonoBehaviour
                 po.strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Streak);
                 po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Streak);
             }
-            else
+            else if(!po.perfectRound)
             {
                 po.strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
                 po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
             }
+        }
+    }
+
+    void ClearPerfection()
+    {
+        foreach(PlayerObject po in PlayerManager.Get.players.Where(x => x.perfectRound))
+        {
+            po.strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
+            po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
+            po.perfectRound = false;
         }
     }
 
@@ -234,9 +250,12 @@ public class RoundBase : MonoBehaviour
         {
             if(po.qsCorrectThisRound == currentRound.questions.Count)
             {
+                po.perfectRound = true;
                 po.points += GameplayManager.Get.GetRoundBase().pointsForPerfect;
                 po.strap.PointsTick(po.points - GameplayManager.Get.GetRoundBase().pointsForPerfect, po.points);
                 po.cloneStrap.PointsTick(po.points - GameplayManager.Get.GetRoundBase().pointsForPerfect, po.points);
+                po.strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.BonusAwarded);
+                po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.BonusAwarded);
                 HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"End of Round {Extensions.ForceFirstCharToUpper(Extensions.NumberToWords(GameplayManager.Get.roundsPlayed + 1))}\n(You earned a perfect round bonus of {GameplayManager.Get.GetRoundBase().pointsForPerfect} points!");
                 HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.UpdateScore, $"POINTS: {po.points}");
             }
@@ -245,6 +264,7 @@ public class RoundBase : MonoBehaviour
             po.qsCorrectThisRound = 0;
         }
         LeaderboardManager.Get.ReorderBoard();
+        Invoke("ClearPerfection", 3.5f);
         ResetPlayerVariables();
     }
 }

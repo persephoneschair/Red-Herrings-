@@ -39,4 +39,19 @@ public class LEDManager : SingletonMonoBehaviour<LEDManager>
         }
         environmentLight.intensity = 0.9f;
     }
+
+    public void DimLights()
+    {
+        StartCoroutine(DimLightsRoutine());
+    }
+
+    IEnumerator DimLightsRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        while(environmentLight.intensity > 0)
+        {
+            environmentLight.intensity -= 0.01f;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 }

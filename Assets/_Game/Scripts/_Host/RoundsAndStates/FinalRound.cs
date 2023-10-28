@@ -1,6 +1,7 @@
  using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class FinalRound : RoundBase
@@ -100,7 +101,7 @@ public class FinalRound : RoundBase
             po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
             HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"Thanks for playing Red Herrings!\n\nYou earned {po.points * GameplayPennys.Get.multiplyFactor} Pennys this game!");
         }
-            
+        DebugLog.Print($"GAME OVER!", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Default);
     }
 
     private void KillQStrap()

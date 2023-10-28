@@ -10,8 +10,8 @@ public class TitlesManager : SingletonMonoBehaviour<TitlesManager>
     public TextMeshPro titlesMesh;
     public Animator titlesAnim;
 
-    public GameObject liveFish;
-    public GameObject deadFish;
+    public GameObject[] liveFish;
+    public GameObject[] deadFish;
 
     [TextArea (3,4)] public string[] titleOptions;
     
@@ -31,13 +31,16 @@ public class TitlesManager : SingletonMonoBehaviour<TitlesManager>
         {
             GameplayManager.Get.currentStage = GameplayManager.GameplayStage.DoNothing;
             StartCoroutine(TitleSequence());
-        }           
+        }
     }
 
     void SkipDelay()
     {
-        liveFish.SetActive(!Operator.Get.deadMode);
-        deadFish.SetActive(Operator.Get.deadMode);
+        foreach (GameObject go in liveFish)
+            go.SetActive(!Operator.Get.deadMode);
+
+        foreach (GameObject go in deadFish)
+            go.SetActive(Operator.Get.deadMode);
     }
 
     IEnumerator TitleSequence()
@@ -56,8 +59,12 @@ public class TitlesManager : SingletonMonoBehaviour<TitlesManager>
         yield return new WaitForSeconds(4.5f);
         if (Operator.Get.deadMode)
         {
-            liveFish.SetActive(false);
-            deadFish.SetActive(true);
+            foreach (GameObject go in liveFish)
+                go.SetActive(false);
+
+            foreach(GameObject go in deadFish)
+                go.SetActive(true);
+            
             titlesMesh.text = "Dead\nHerrings!";
             AudioManager.Get.Play(AudioManager.OneShotClip.Splatter);
         }            

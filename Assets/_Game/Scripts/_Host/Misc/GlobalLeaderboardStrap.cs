@@ -31,7 +31,8 @@ public class GlobalLeaderboardStrap : MonoBehaviour
         FrozenOut,
         Correct,
         Incorrect,
-        Streak
+        Streak,
+        BonusAwarded
     }
 
 
@@ -66,7 +67,6 @@ public class GlobalLeaderboardStrap : MonoBehaviour
 
     public void PointsTick(int current, int target)
     {
-        hitAnim.SetTrigger("toggle");
         //LeaderboardManager.Get.ReorderBoard();
         StartCoroutine(TickRoutine(current, target));
     }

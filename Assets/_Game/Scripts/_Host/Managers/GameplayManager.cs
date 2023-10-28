@@ -93,7 +93,7 @@ public class GameplayManager : SingletonMonoBehaviour<GameplayManager>
 
             case GameplayStage.RollCredits:
                 GameplayPennys.Get.UpdatePennysAndMedals();
-                Debug.Log("Roll Credits");
+                CreditsManager.Get.RollCredits();
                 currentStage++;
                 break;
 

@@ -42,4 +42,13 @@ public class LeaderboardManager : SingletonMonoBehaviour<LeaderboardManager>
         cloneStraps.FirstOrDefault(x => x.containedPlayer == null).PopulateStrap(po, true);
         ReorderBoard();
     }
+
+    public void HideAllStraps()
+    {
+        foreach(GlobalLeaderboardStrap st in straps)
+            st.gameObject.SetActive(false);
+
+        foreach (GlobalLeaderboardStrap st in cloneStraps)
+            st.gameObject.SetActive(false);
+    }
 }
