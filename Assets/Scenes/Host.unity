@@ -588,12 +588,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testMode: 0
   skipOpeningTitles: 0
-  deadMode: 1
+  deadMode: 0
   fastValidation: 0
   recoveryMode: 0
   playerLimit: 40
-  questionPack: {fileID: 4900000, guid: fd26932191619294fb3aff305dbc8159, type: 3}
+  questionPack: {fileID: 4900000, guid: 4a871ac1d319c644280273330284a671, type: 3}
   debugStartRound: 0
+  legacyQuestionPack: {fileID: 0}
+  legacyPackAuthor: 
+  legacyPackOutput: 
 --- !u!114 &59405807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,7 +1913,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 347.3
+  m_fontSize: 337.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -39238,7 +39241,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.05
+  m_fontSize: 52.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -1,0 +1,210 @@
+{
+  "author": "thelupineone",
+  "rounds": [
+    {
+      "roundTitle": "Oh ye Gods! My roast is ruined!",
+      "questions": [
+        {
+          "questionText": "Played C.J. Parker on Baywatch",
+          "correctAnswer": "Pamela Anderson"
+        },
+        {
+          "questionText": "Portrayed Captain James T. Kirk on the original series of Star Trek",
+          "correctAnswer": "William Shatner"
+        },
+        {
+          "questionText": "American rapper, founding member of Public Enemy, often wears a clock around his neck in place of a medallion",
+          "correctAnswer": "Flavor Flav"
+        },
+        {
+          "questionText": "Portrayed Danny Tanner on Full House",
+          "correctAnswer": "Bob Saget"
+        },
+        {
+          "questionText": "American comedian who won the Daytime Emmy for Outstanding Talk Show Host in 1990",
+          "correctAnswer": "Joan Rivers"
+        },
+        {
+          "questionText": "Played Michael Knight, the man behind the wheel of KITT on Knight Rider",
+          "correctAnswer": "David Hasselhoff"
+        },
+        {
+          "questionText": "Starred in 'Two and a Half Men' between 2003 and 2011 before his dismissal from the series, resulting in a public meltdown",
+          "correctAnswer": "Charlie Sheen"
+        },
+        {
+          "questionText": "The voice of Mater in Pixar's 'Cars' series of animated movies",
+          "correctAnswer": "Larry the Cable Guy"
+        },
+        {
+          "questionText": "Played Harry Osborn in the Sam Raimi-directed Spider-Man movie trilogy",
+          "correctAnswer": "James Franco"
+        },
+        {
+          "questionText": "Canadian pop singer whose hits include 'Baby', 'Love Yourself' and 'What Do You Mean?'",
+          "correctAnswer": "Justin Bieber"
+        },
+        {
+          "questionText": "Played John McClane in the Die Hard movie franchise",
+          "correctAnswer": "Bruce Willis"
+        },
+        {
+          "questionText": "Played Jack Donaghy in the Tina Fey sitcom 30 Rock",
+          "correctAnswer": "Alec Baldwin"
+        }
+      ],
+      "redHerrings": [
+        "Denis Leary",
+        "Donald Trump",
+        "Roseanne Barr",
+        "Rob Lowe"
+      ]
+    },
+    {
+      "roundTitle": "But what if... I were to purchase fast food and disguise it as my own cooking?",
+      "questions": [
+        {
+          "questionText": "Chicken Fries",
+          "correctAnswer": "Burger King"
+        },
+        {
+          "questionText": "Tiny Tacos",
+          "correctAnswer": "Jack in the Box"
+        },
+        {
+          "questionText": "Dave's Single",
+          "correctAnswer": "Wendy's"
+        },
+        {
+          "questionText": "Big Buford",
+          "correctAnswer": "Checkers / Rally's"
+        },
+        {
+          "questionText": "Concrete Mixer",
+          "correctAnswer": "Culver's"
+        },
+        {
+          "questionText": "Double-Double",
+          "correctAnswer": "In-N-Out Burger"
+        },
+        {
+          "questionText": "Mexican Pizza",
+          "correctAnswer": "Taco Bell"
+        },
+        {
+          "questionText": "Chicken Little",
+          "correctAnswer": "KFC"
+        },
+        {
+          "questionText": "Crazy Bread",
+          "correctAnswer": "Little Caesars"
+        },
+        {
+          "questionText": "Blizzard",
+          "correctAnswer": "Dairy Queen"
+        },
+        {
+          "questionText": "Classic Beef 'N Cheddar",
+          "correctAnswer": "Arby's"
+        },
+        {
+          "questionText": "The 3 Finger Combo",
+          "correctAnswer": "Raising Cane's"
+        }
+      ],
+      "redHerrings": [
+        "McDonald's",
+        "Carl's Jr. / Hardee's",
+        "Panera Bread",
+        "Tim Hortons"
+      ]
+    },
+    {
+      "roundTitle": "Good Lord, what is happening in there?",
+      "questions": [
+        {
+          "questionText": "A creature from Irish folklore, said to reveal the location of treasure if caught",
+          "correctAnswer": "Leprechaun"
+        },
+        {
+          "questionText": "A dwelling infested with ghosts",
+          "correctAnswer": "Haunted House"
+        },
+        {
+          "questionText": "An Australian cryptid also known as the Yarri",
+          "correctAnswer": "Queensland Tiger"
+        },
+        {
+          "questionText": "Encountered by the Fellowship of the Ring in the Mines of Moria",
+          "correctAnswer": "The Balrog"
+        },
+        {
+          "questionText": "A 1983 novel by Roald Dahl",
+          "correctAnswer": "The Witches"
+        },
+        {
+          "questionText": "It's why the pitch of an ambulance's siren changes as it approaches and then moves away from you",
+          "correctAnswer": "The Doppler Effect"
+        },
+        {
+          "questionText": "Enemies respawn under its red glow in The Legend of Zelda: Breath of the Wild",
+          "correctAnswer": "Blood Moon"
+        },
+        {
+          "questionText": "A 1982 horror movie co-written by Steven Spielberg",
+          "correctAnswer": "Poltergeist"
+        },
+        {
+          "questionText": "Humans that transform into lupine form under the light of a full moon",
+          "correctAnswer": "Werewolves"
+        }
+      ],
+      "redHerrings": [
+        "Will o' the Wisp",
+        "Mothman",
+        "The Babadook"
+      ]
+    },
+    {
+      "roundTitle": "Well, Seymour, you are an odd fellow, but I must say... you steam a good ham.",
+      "questions": [
+        {
+          "questionText": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+          "correctAnswer": "Mulefoot"
+        },
+        {
+          "questionText": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+          "correctAnswer": "Duroc"
+        },
+        {
+          "questionText": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+          "correctAnswer": "American Yorkshire"
+        },
+        {
+          "questionText": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+          "correctAnswer": "Gloucestershire Old Spots"
+        },
+        {
+          "questionText": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+          "correctAnswer": "Chester White"
+        },
+        {
+          "questionText": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+          "correctAnswer": "Tamworth"
+        }
+      ],
+      "redHerrings": [
+        "Simmental",
+        "Belted Galloway",
+        "Limousin",
+        "Khaki Campbell",
+        "Jersey Giant",
+        "Orpington",
+        "Wyandotte",
+        "Sussex",
+        "Lincoln",
+        "Merino"
+      ]
+    }
+  ]
+}

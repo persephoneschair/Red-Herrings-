@@ -24,6 +24,10 @@ public class Operator : SingletonMonoBehaviour<Operator>
     public TextAsset questionPack;
     public int debugStartRound;
 
+    public TextAsset legacyQuestionPack;
+    public string legacyPackAuthor;
+    [TextArea(5, 10)] public string legacyPackOutput;
+
     public override void Awake()
     {
         base.Awake();
@@ -42,6 +46,8 @@ public class Operator : SingletonMonoBehaviour<Operator>
 
         if (questionPack != null)
             QuestionManager.DecompilePack(questionPack);
+        else if(legacyQuestionPack != null)
+            QuestionManager.ConvertFromLegacyTemplate(legacyQuestionPack);
         else
             DebugLog.Print("NO QUESTION PACK LOADED; PLEASE ASSIGN ONE AND RESTART THE BUILD", DebugLog.StyleOption.Bold, DebugLog.ColorOption.Red);
 
@@ -55,7 +61,7 @@ public class Operator : SingletonMonoBehaviour<Operator>
     [Button]
     public void ProgressGameplay()
     {
-        if (questionPack != null)
+        if (QuestionManager.currentPack != null)
             GameplayManager.Get.ProgressGameplay();
     }
 

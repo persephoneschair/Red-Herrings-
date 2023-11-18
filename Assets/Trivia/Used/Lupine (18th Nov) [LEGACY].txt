@@ -1,0 +1,130 @@
+{
+  "round1": {
+    "title": "Oh ye Gods! My roast is ruined!",
+    "questions": [
+      "Played C.J. Parker on Baywatch",
+      "Portrayed Captain James T. Kirk on the original series of Star Trek",
+      "American rapper, founding member of Public Enemy, often wears a clock around his neck in place of a medallion",
+      "Portrayed Danny Tanner on Full House",
+      "American comedian who won the Daytime Emmy for Outstanding Talk Show Host in 1990",
+      "Played Michael Knight, the man behind the wheel of KITT on Knight Rider",
+      "Starred in 'Two and a Half Men' between 2003 and 2011 before his dismissal from the series, resulting in a public meltdown",
+      "The voice of Mater in Pixar's 'Cars' series of animated movies",
+      "Played Harry Osborn in the Sam Raimi-directed Spider-Man movie trilogy",
+      "Canadian pop singer whose hits include 'Baby', 'Love Yourself' and 'What Do You Mean?'",
+      "Played John McClane in the Die Hard movie franchise",
+      "Played Jack Donaghy in the Tina Fey sitcom 30 Rock"
+    ],
+    "answers": [
+      "Pamela Anderson",
+      "William Shatner",
+      "Flavor Flav",
+      "Bob Saget",
+      "Joan Rivers",
+      "David Hasselhoff",
+      "Charlie Sheen",
+      "Larry the Cable Guy",
+      "James Franco",
+      "Justin Bieber",
+      "Bruce Willis",
+      "Alec Baldwin"
+    ],
+    "rogueAnswers": [
+      "Denis Leary",
+      "Donald Trump",
+      "Roseanne Barr",
+      "Rob Lowe"
+    ]
+  },
+  "round2": {
+    "title": "But what if... I were to purchase fast food and disguise it as my own cooking?",
+    "questions": [
+      "Chicken Fries",
+      "Tiny Tacos",
+      "Dave's Single",
+      "Big Buford",
+      "Concrete Mixer",
+      "Double-Double",
+      "Mexican Pizza",
+      "Chicken Little",
+      "Crazy Bread",
+      "Blizzard",
+      "Classic Beef 'N Cheddar",
+      "The 3 Finger Combo"
+    ],
+    "answers": [
+      "Burger King",
+      "Jack in the Box",
+      "Wendy's",
+      "Checkers / Rally's",
+      "Culver's",
+      "In-N-Out Burger",
+      "Taco Bell",
+      "KFC",
+      "Little Caesars",
+      "Dairy Queen",
+      "Arby's",
+      "Raising Cane's"
+    ],
+    "rogueAnswers": [
+      "McDonald's",
+      "Carl's Jr. / Hardee's",
+      "Panera Bread",
+      "Tim Hortons"
+    ]
+  },
+  "round3": {
+    "title": "Good Lord, what is happening in there?",
+    "questions": [
+      "A creature from Irish folklore, said to reveal the location of treasure if caught",
+      "A dwelling infested with ghosts",
+      "An Australian cryptid also known as the Yarri",
+      "Encountered by the Fellowship of the Ring in the Mines of Moria",
+      "A 1983 novel by Roald Dahl",
+      "It's why the pitch of an ambulance's siren changes as it approaches and then moves away from you",
+      "Enemies respawn under its red glow in The Legend of Zelda: Breath of the Wild",
+      "A 1982 horror movie co-written by Steven Spielberg",
+      "Humans that transform into lupine form under the light of a full moon"
+    ],
+    "answers": [
+      "Leprechaun",
+      "Haunted House",
+      "Queensland Tiger",
+      "The Balrog",
+      "The Witches",
+      "The Doppler Effect",
+      "Blood Moon",
+      "Poltergeist",
+      "Werewolves"
+    ],
+    "rogueAnswers": [
+      "Will o' the Wisp",
+      "Mothman",
+      "The Babadook"
+    ]
+  },
+  "finalRound": {
+    "roundTitle": "Well, Seymour, you are an odd fellow, but I must say... you steam a good ham.",
+    "roundDescription": "Identify six breeds of pig named on the article 'Top 15 Best Pig Breeds for Your Farm' on agronomag.com",
+    "correctAnswers": [
+      "Mulefoot",
+      "Duroc",
+      "American Yorkshire",
+      "Gloucestershire Old Spots",
+      "Chester White",
+      "Tamworth"
+    ],
+    "rogueAnswers": [
+      "Simmental",
+      "Belted Galloway",
+      "Limousin",
+      "Khaki Campbell",
+      "Jersey Giant",
+      "Orpington",
+      "Wyandotte",
+      "Sussex",
+      "Lincoln",
+      "Merino"
+    ]
+  }
+}
