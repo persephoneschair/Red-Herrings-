@@ -256,7 +256,7 @@ public class RoundBase : MonoBehaviour
                 po.cloneStrap.PointsTick(po.points - GameplayManager.Get.GetRoundBase().pointsForPerfect, po.points);
                 po.strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.BonusAwarded);
                 po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.BonusAwarded);
-                HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"End of Round {Extensions.ForceFirstCharToUpper(Extensions.NumberToWords(GameplayManager.Get.roundsPlayed + 1))}\n(You earned a perfect round bonus of {GameplayManager.Get.GetRoundBase().pointsForPerfect} points!");
+                HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.Information, $"End of Round {Extensions.ForceFirstCharToUpper(Extensions.NumberToWords(GameplayManager.Get.roundsPlayed + 1))}\n(You earned a perfect round bonus of {GameplayManager.Get.GetRoundBase().pointsForPerfect} points!)");
                 HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.UpdateScore, $"POINTS: {po.points}");
             }
             po.frozenOut = false;
