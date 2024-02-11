@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
@@ -57,13 +58,21 @@ public class RoundBase : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
 
         int xylInd = 0;
+        bool up = true;
         foreach (AnswerCard card in answerCards)
         {
             card.Reveal();
             if(!endOfRound)
             {
                 AudioManager.Get.PlayXyl(xylInd);
-                xylInd++;
+                if (up)
+                    xylInd++;
+                else
+                    xylInd--;
+
+                if (xylInd == 15 || xylInd == -1)
+                    up = !up;
+
                 card.RandomWiggles();
             }                
             yield return new WaitForSeconds(0.15f);

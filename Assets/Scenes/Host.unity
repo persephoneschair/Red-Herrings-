@@ -586,13 +586,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85e3651af7290841ae573c014eec2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 0
-  skipOpeningTitles: 0
+  testMode: 1
+  skipOpeningTitles: 1
   deadMode: 0
   fastValidation: 0
   recoveryMode: 0
   playerLimit: 40
-  questionPack: {fileID: 4900000, guid: 4a871ac1d319c644280273330284a671, type: 3}
+  questionPack: {fileID: 4900000, guid: 783e465bb28f64a4d923204273133376, type: 3}
   debugStartRound: 0
   legacyQuestionPack: {fileID: 0}
   legacyPackAuthor: 
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 337.15
+  m_fontSize: 347.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -39241,7 +39241,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.1
+  m_fontSize: 52.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -41037,12 +41037,12 @@ MonoBehaviour:
 
     <size=30%>Question Writers</size>
 
-    <size=48%>Will Chadwick
+    <size=48%>Joseph Freeman
 
     Ben
     Lathbury
 
-    Edwin Simon</size>
+    Alex Richards</size>
 
 
     <size=30%>Music</size>

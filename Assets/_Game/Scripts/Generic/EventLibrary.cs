@@ -20,6 +20,7 @@ public static class EventLibrary
         NumericalQuestion,
         MultipleChoiceQuestion,
         MultiSelectQuestion,
+        MultiSelectQuestionLimited,
         KillSingleMultiSelectButton,
         DangerZoneQuestion,
 

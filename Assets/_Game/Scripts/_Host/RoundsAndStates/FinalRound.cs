@@ -36,9 +36,10 @@ public class FinalRound : RoundBase
 
     public override void QuestionRunning()
     {
+        int correctCount = GameplayManager.Get.GetRoundBase().currentRound.questions.Select(x => x.correctAnswer).Count();
         foreach (PlayerObject po in PlayerManager.Get.players.Where(x => !x.frozenOut))
-            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.MultiSelectQuestion,
-                $"{currentQuestion.questionText}|{GameplayManager.Get.GetRoundBase().defaultQuestionTime - 1}|{string.Join("|", allShuffledAnswers)}");
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.MultiSelectQuestionLimited,
+                $"{currentQuestion.questionText}|{GameplayManager.Get.GetRoundBase().defaultQuestionTime - 1}|{correctCount}|{string.Join("|", allShuffledAnswers)}");
 
         AudioManager.Get.Play(AudioManager.OneShotClip.Ding);
         AudioManager.Get.Play(AudioManager.LoopClip.FinalQ, false, 1f);
@@ -122,8 +123,9 @@ public class FinalRound : RoundBase
         //Add some catch for if it's timed out
         if (!roundConcluded)
         {
-            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.MultiSelectQuestion,
-                    $"{currentQuestion.questionText}|{GlobalTimeManager.Get.timeRemaining - 1}"); //|{string.Join("|", allShuffledAnswers)} - removed from end for special unlocking mode
+            int correctCount = GameplayManager.Get.GetRoundBase().currentRound.questions.Select(x => x.correctAnswer).Count();
+            HostManager.Get.SendPayloadToClient(po, EventLibrary.HostEventType.MultiSelectQuestionLimited,
+                    $"{currentQuestion.questionText}|{GlobalTimeManager.Get.timeRemaining - 1}|{correctCount}"); //|{string.Join("|", allShuffledAnswers)} - removed from end for special unlocking mode
             po.strap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
             po.cloneStrap.SetStrapColor(GlobalLeaderboardStrap.StrapColor.Default);
         }

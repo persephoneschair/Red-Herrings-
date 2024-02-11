@@ -1,0 +1,210 @@
+{
+  "author": "royal_flush",
+  "rounds": [
+    {
+      "roundTitle": "Well, That Happened...",
+      "questions": [
+        {
+          "questionText": "Rishi Sunak is fined for failing to wear a seatbelt",
+          "correctAnswer": "January"
+        },
+        {
+          "questionText": "Ncuti Gatwa stars as the Fifteenth Doctor in his first full series of 'Doctor Who'",
+          "correctAnswer": "Trick question; that'll be 2024"
+        },
+        {
+          "questionText": "Humza Yousaf is appointed First Minister of Scotland",
+          "correctAnswer": "March"
+        },
+        {
+          "questionText": "Pope Emeritus Benedict XVI dies aged 95",
+          "correctAnswer": "Trick question; that was 2022"
+        },
+        {
+          "questionText": "The coronation of Charles III and Camilla takes place at Westminster Abbey",
+          "correctAnswer": "May"
+        },
+        {
+          "questionText": "Roger Federer wins the Gentlemen's Singles final at Wimbledon",
+          "correctAnswer": "Trick question; that was 2017"
+        },
+        {
+          "questionText": "'Barbie' and 'Oppenheimer' are released worldwide",
+          "correctAnswer": "July"
+        },
+        {
+          "questionText": "England's Lionesses lose 1-0 to Spain in the final of the FIFA Women's World Cup",
+          "correctAnswer": "August"
+        },
+        {
+          "questionText": "Elton John headlines Glastonbury Festival",
+          "correctAnswer": "June"
+        },
+        {
+          "questionText": "The Rugby World Cup is won by South Africa in France",
+          "correctAnswer": "October"
+        },
+        {
+          "questionText": "'Now and Then', the so-called 'last Beatles song' is released and reaches #1 in the UK and USA",
+          "correctAnswer": "November"
+        },
+        {
+          "questionText": "Following a ten-month tease, Linda is revealed as Keanu's murderer in 'EastEnders'",
+          "correctAnswer": "December"
+        }
+      ],
+      "redHerrings": [
+        "April",
+        "September",
+        "February",
+        "Trick question; that was 2021"
+      ]
+    },
+    {
+      "roundTitle": "Nested Media",
+      "questions": [
+        {
+          "questionText": "A film within a 00s film",
+          "correctAnswer": "Nation's Pride"
+        },
+        {
+          "questionText": "A play within a play",
+          "correctAnswer": "The Murder of Gonzago"
+        },
+        {
+          "questionText": "A film within a 90s film",
+          "correctAnswer": "Angels With Filthy Souls"
+        },
+        {
+          "questionText": "A book within a book",
+          "correctAnswer": "The Theory and Practice of Oligarchical Collectivism"
+        },
+        {
+          "questionText": "A cartoon within a cartoon",
+          "correctAnswer": "The Itchy & Scratchy Show"
+        },
+        {
+          "questionText": "A video game within a video game",
+          "correctAnswer": "Crash Bandicoot"
+        },
+        {
+          "questionText": "A painting within a story within a book within a film",
+          "correctAnswer": "Boy with Apple"
+        },
+        {
+          "questionText": "A newspaper within a comic",
+          "correctAnswer": "The Daily Bugle"
+        },
+        {
+          "questionText": "A book within a video game",
+          "correctAnswer": "Ruminations on the Elder Scrolls"
+        },
+        {
+          "questionText": "A TV show within a video game",
+          "correctAnswer": "Address Unknown"
+        },
+        {
+          "questionText": "A musical within a musical",
+          "correctAnswer": "Springtime for Hitler: A Gay Romp with Adolf and Eva at Berchtesgaden"
+        },
+        {
+          "questionText": "A TV show within a film",
+          "correctAnswer": "The Truman Show"
+        }
+      ],
+      "redHerrings": [
+        "Private Eye",
+        "The Last of Us",
+        "The Emancipation of Thought",
+        "Knowing Me, Knowing You"
+      ]
+    },
+    {
+      "roundTitle": "That's A Typo...",
+      "questions": [
+        {
+          "questionText": "The second of the 'five D's of dodgeball'",
+          "correctAnswer": "Suck"
+        },
+        {
+          "questionText": "The capital city of Italy",
+          "correctAnswer": "Rope"
+        },
+        {
+          "questionText": "Half of Laurel and Hardy",
+          "correctAnswer": "Stay"
+        },
+        {
+          "questionText": "Band who performed the song 'Hold the Line'",
+          "correctAnswer": "Togo"
+        },
+        {
+          "questionText": "'Riotous' Stravinsky ballet: The ___ of Spring",
+          "correctAnswer": "Rise"
+        },
+        {
+          "questionText": "Shakespearean stock character",
+          "correctAnswer": "Tool"
+        },
+        {
+          "questionText": "Gradually takes away strength",
+          "correctAnswer": "Sags"
+        },
+        {
+          "questionText": "Precipitation",
+          "correctAnswer": "Rail"
+        },
+        {
+          "questionText": "Place of burial",
+          "correctAnswer": "Tome"
+        }
+      ],
+      "redHerrings": [
+        "Shin",
+        "Rest",
+        "Trip"
+      ]
+    },
+    {
+      "roundTitle": "Here We Go Again...",
+      "questions": [
+        {
+          "questionText": "Identify the things that will happen, or are expected to happen, in 2024",
+          "correctAnswer": "UK general election"
+        },
+        {
+          "questionText": "Identify the things that will happen, or are expected to happen, in 2024",
+          "correctAnswer": "US presidential election"
+        },
+        {
+          "questionText": "Identify the things that will happen, or are expected to happen, in 2024",
+          "correctAnswer": "February 29th"
+        },
+        {
+          "questionText": "Identify the things that will happen, or are expected to happen, in 2024",
+          "correctAnswer": "The film 'Inside Out 2' is released"
+        },
+        {
+          "questionText": "Identify the things that will happen, or are expected to happen, in 2024",
+          "correctAnswer": "Trevor Noah hosts the Grammy Awards"
+        },
+        {
+          "questionText": "Identify the things that will happen, or are expected to happen, in 2024",
+          "correctAnswer": "The Games of the XXXIII Olympiad"
+        }
+      ],
+      "redHerrings": [
+        "French legislative election",
+        "The film codenamed 'Avengers 5' is released",
+        "Spain hosts the UEFA European Football Championship",
+        "'Only Connect' begins its 17th series",
+        "Sweden hosts the 69th Eurovision Song Contest",
+        "500th episode of Royal_Flu$h's 'Game Night'",
+        "Arctic Monkeys release the album 'The Car'",
+        "Chris Rock hosts the Academy Awards",
+        "The events of the film 'Blade Runner'",
+        "Princess Eugenie gives birth to her second child with Jack Brooksbank"
+      ]
+    }
+  ]
+}

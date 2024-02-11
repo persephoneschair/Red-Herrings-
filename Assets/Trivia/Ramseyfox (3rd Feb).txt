@@ -1,0 +1,218 @@
+{
+  "author": "ramseyfox",
+  "rounds": [
+    {
+      "roundTitle": "Please Choose an Egyptian Hieroglyph",
+      "questions": [
+        {
+          "questionText": "Head of Egyptian Deity Re (or Ra)",
+          "correctAnswer": "Falcon with Sun on Head"
+        },
+        {
+          "questionText": "Aslan, for instance",
+          "correctAnswer": "Lion"
+        },
+        {
+          "questionText": "Venomous member of the genus Cerastes",
+          "correctAnswer": "Horned Viper"
+        },
+        {
+          "questionText": "Featured in first Elton John U.S. Number 1 single",
+          "correctAnswer": "Crocodile"
+        },
+        {
+          "questionText": "National bird of Israel",
+          "correctAnswer": "Hoopoe"
+        },
+        {
+          "questionText": "Are grey at first, gaining color due to beta-carotene in their diet",
+          "correctAnswer": "Flamingo"
+        },
+        {
+          "questionText": "Feature of the annual 'Encierros de San Fermin'",
+          "correctAnswer": "Charging Bull"
+        },
+        {
+          "questionText": "Shakira's character in Zootopia/Zootropolis",
+          "correctAnswer": "Gazelle"
+        },
+        {
+          "questionText": "Symbol of the U.S. Republican Party",
+          "correctAnswer": "Elephant"
+        },
+        {
+          "questionText": "Eighth biblical Plague of Egypt",
+          "correctAnswer": "Locust"
+        },
+        {
+          "questionText": "Geoffrey, the mascot of Toys ''R'' Us",
+          "correctAnswer": "Giraffe"
+        },
+        {
+          "questionText": "Zodiac symbol of someone born on 1 January",
+          "correctAnswer": "Goat"
+        }
+      ],
+      "redHerrings": [
+        "Jackal Looking Back",
+        "Ibis",
+        "Erect Cobra",
+        "Donkey",
+        "Cat",
+        "Fly",
+        "Scorpion",
+        "Vulture with Flail"
+      ]
+    },
+    {
+      "roundTitle": "What Comes Fourth in this Sequence?",
+      "questions": [
+        {
+          "questionText": "Red, Orange, Yellow, _____?",
+          "correctAnswer": "Green"
+        },
+        {
+          "questionText": "Yellow (2), Green (3), Brown (4), _____ (5)?",
+          "correctAnswer": "Blue"
+        },
+        {
+          "questionText": "Mustard, Peacock, Plum, _____?",
+          "correctAnswer": "Scarlet"
+        },
+        {
+          "questionText": "Green, Hazel, Blue, _____?",
+          "correctAnswer": "Brown"
+        },
+        {
+          "questionText": "Key (Black), Yellow, Magenta, _____?",
+          "correctAnswer": "Cyan"
+        },
+        {
+          "questionText": "Maroon, Brick, Ruby, _____?",
+          "correctAnswer": "Red"
+        },
+        {
+          "questionText": "Pallet, Viridian, Pewter, _____?",
+          "correctAnswer": "Cerulean"
+        },
+        {
+          "questionText": "Red (22°N), Yellow (38°N), Black (44°N), _____ (65°N)?",
+          "correctAnswer": "White"
+        },
+        {
+          "questionText": "Lead, Thallium, Mercury, _____?",
+          "correctAnswer": "Gold"
+        },
+        {
+          "questionText": "Light Blue, Pink, White, _____?",
+          "correctAnswer": "Pink"
+        },
+        {
+          "questionText": "Green ($/£ 920), Yellow ($/£ 800), Red ($/£ 680), _____ ($/£ 560)?",
+          "correctAnswer": "Orange"
+        },
+        {
+          "questionText": "White, Cyan (-FF), Blue (-FF), _____ (-FF)?",
+          "correctAnswer": "Black"
+        }
+      ],
+      "redHerrings": [
+        "Yellow",
+        "Indigo",
+        "Purple",
+        "Silver"
+      ]
+    },
+    {
+      "roundTitle": "Anyway, Here's Water Wall",
+      "questions": [
+        {
+          "questionText": "Disney's 'Blizzard Beach' or 'Typhoon Lagoon'",
+          "correctAnswer": "Water Park"
+        },
+        {
+          "questionText": "1990s political scandal featuring President Clinton",
+          "correctAnswer": "Whitewater"
+        },
+        {
+          "questionText": "Subtitle to the 2022 Avatar sequel",
+          "correctAnswer": "The Way of Water"
+        },
+        {
+          "questionText": "Nicknamed the 'Poor Man's Bread' in Victorian England",
+          "correctAnswer": "Watercress"
+        },
+        {
+          "questionText": "Vinnufallet in Norway, one of the Top 10 Tallest in the World",
+          "correctAnswer": "Waterfall"
+        },
+        {
+          "questionText": "Invented in 13th century Italy",
+          "correctAnswer": "Watermark"
+        },
+        {
+          "questionText": "In finance, owing more on a mortgage than the property is worth",
+          "correctAnswer": "Underwater"
+        },
+        {
+          "questionText": "Variety of taffy created in 1880s New Jersey",
+          "correctAnswer": "Salt Water"
+        },
+        {
+          "questionText": "Subject of around 250 Monet paintings",
+          "correctAnswer": "Water Lilies"
+        }
+      ],
+      "redHerrings": [
+        "Watergate",
+        "Waterbed",
+        "The Shape of Water",
+        "Water Slide",
+        "Watercolour",
+        "Mineral Water",
+        "Watermelon"
+      ]
+    },
+    {
+      "roundTitle": "ND TH SCR GS T",
+      "questions": [
+        {
+          "questionText": "Identify the six films that won the Academy Award for Best Picture",
+          "correctAnswer": "CSBLNC"
+        },
+        {
+          "questionText": "Identify the six films that won the Academy Award for Best Picture",
+          "correctAnswer": "MDS"
+        },
+        {
+          "questionText": "Identify the six films that won the Academy Award for Best Picture",
+          "correctAnswer": "RG"
+        },
+        {
+          "questionText": "Identify the six films that won the Academy Award for Best Picture",
+          "correctAnswer": "PRST"
+        },
+        {
+          "questionText": "Identify the six films that won the Academy Award for Best Picture",
+          "correctAnswer": "R NMN"
+        },
+        {
+          "questionText": "Identify the six films that won the Academy Award for Best Picture",
+          "correctAnswer": "LWRN CF RB"
+        }
+      ],
+      "redHerrings": [
+        "T HWZR DF Z",
+        "LL L ND",
+        "RGN GBLL",
+        "JWS",
+        "MLN RG",
+        "P",
+        "LF F P",
+        "FRG",
+        "F WG DM N",
+        "GHST"
+      ]
+    }
+  ]
+}

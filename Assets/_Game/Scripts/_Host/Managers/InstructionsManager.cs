@@ -56,7 +56,7 @@ public class InstructionsManager : SingletonMonoBehaviour<InstructionsManager>
         "" +
         "Answers will gradually be removed as gameplay progresses.\n\n" +
         "" +
-        "Gameplay continues until all {5} players have found all {0} answers or <color=yellow>{4} seconds</color> have expired."
+        "Gameplay continues until {5} players have found all {0} answers or <color=yellow>{4} seconds</color> have expired."
     };
 
     [Button]

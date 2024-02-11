@@ -110,6 +110,12 @@ public class HostManager : SingletonMonoBehaviour<HostManager>
         //[1] = (int)time in seconds
         //[2]-[n] = options
 
+        //Multiple Choice / Multi-select limited
+        //[0] = question
+        //[1] = (int)time in seconds
+        //[2] = limiter
+        //[3]-[n] = options
+
         //Single & Multi Result
         //[0] = answer message (simply include list as concatenated string)
         //[1] = feedbackBox colorstyle enum (DEFAULT|CORRECT|INCORRECT - AS STRING)
